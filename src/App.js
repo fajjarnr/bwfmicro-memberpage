@@ -1,10 +1,23 @@
+import { createBrowserHistory } from "history";
+import { Route, Router, Switch } from "react-router-dom";
+import GuestRoutes from "./components/Routes/GuestRoutes";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+
+import "assets/css/style.css";
+
 function App() {
+  const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
+
   return (
-    <div className="container mx-auto">
-      <h1>React Js</h1>
-      <h1 className="text-6xl text-purple-600">Javascript React</h1>
-      <p>hello</p>
-    </div>
+    <>
+      <Router history={history}>
+        <Switch>
+          <GuestRoutes path="/login" component={Login} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
