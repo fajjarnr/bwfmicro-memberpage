@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [footer, seFooter] = useState(() => "");
 
-  const submit = (e) => {
-    window.open(
-      `${process.env.NEXT_PUBLIC_MEMBER_URL}/register?email=${footer}`
-    );
-  };
+  // const submit = (e) => {
+  //   window.open(
+  //     `${process.env.NEXT_PUBLIC_MEMBER_URL}/register?email=${footer}`
+  //   );
+  // };
 
   return (
     <footer className="container mx-auto">
@@ -17,31 +17,35 @@ export default function Footer() {
           <h6 className="text-white">Company</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  API Developer
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                API Developer
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Career
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                Career
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Our Story
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                Our Story
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  New Soon
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                New Soon
               </Link>
             </li>
           </ul>
@@ -50,38 +54,42 @@ export default function Footer() {
           <h6 className="text-white">Student</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Get Scholarship
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                Get Scholarship
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Our Pathskill
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                Our Pathskill
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  All Features
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                All Features
               </Link>
             </li>
             <li className="mt-2">
-              <Link href="#">
-                <a className="text-indigo-500 hover:text-teal-500 hover:underline">
-                  Refund Policy
-                </a>
+              <Link
+                to="#"
+                className="text-white hover:text-teal-500 hover:underline"
+              >
+                Refund Policy
               </Link>
             </li>
           </ul>
         </div>
         <div className="w-1/6">
           <h6 className="text-white">Touch Us</h6>
-          <p className="mt-4 text-indigo-500 leading-">
+          <p className="mt-4 text-white leading-">
             Micro Center <br />
             Alleysi block x No.12 <br />
             Jakarta Selatan, Indonesia <br />
@@ -90,9 +98,7 @@ export default function Footer() {
         </div>
         <div className="w-2/6">
           <h6 className="text-white">Promotions</h6>
-          <p className="mt-4 text-indigo-500">
-            Submit your email for new update
-          </p>
+          <p className="mt-4 text-white">Submit your email for new update</p>
           <form>
             <input
               type="text"
@@ -108,7 +114,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t pt-8 mt-8 text-gray-800 text-center">
-        <p className="text-indigo-500">
+        <p className="text-white">
           2021 Copyright Micro by BuildWith Fajar. All Right Reserved
         </p>
       </div>
