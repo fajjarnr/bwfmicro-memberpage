@@ -1,12 +1,12 @@
 import { setAuthorizationHeader } from "configs/axios";
 import users from "constants/api/users";
 import useForm from "helpers/hooks/useForm";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { populateProfile } from "store/actions/users";
 
 function LoginForm({ history }) {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [{ email, password }, setState] = useForm({
     email: "",
@@ -21,21 +21,22 @@ function LoginForm({ history }) {
       .then((res) => {
         setAuthorizationHeader(res.data.token);
         users.details().then((detail) => {
-          //   dispatch(populateProfile(detail.data));
+          dispatch(populateProfile(detail.data));
           const production =
             process.env.REACT_APP_FRONTPAGE_URL ===
             "https://micro.buildwithangga.id"
               ? "Domain = micro.buildwithangga.id"
               : "";
+
           localStorage.setItem(
-            "BWAMICRO:token",
+            "BWFMICRO:token",
             JSON.stringify({
               ...res.data,
               email: email,
             })
           );
 
-          const redirect = localStorage.getItem("BWAMICRO:redirect");
+          const redirect = localStorage.getItem("BWFMICRO:redirect");
 
           const userCookie = {
             name: detail.data.name,
@@ -47,14 +48,16 @@ function LoginForm({ history }) {
             new Date().getTime() + 7 * 24 * 60 * 60 * 1000
           );
 
-          document.cookie = `BWAMICRO:user=${JSON.stringify(
+          document.cookie = `BWFMICRO:user=${JSON.stringify(
             userCookie
           )}; expires=${expires.toUTCString()}; path:/; ${production}`;
 
           history.push(redirect || "/");
         });
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log("err :>> ", err);
+      });
   }
 
   return (
