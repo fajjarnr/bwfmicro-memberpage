@@ -11,7 +11,6 @@ import {
   fetchCourses,
   messageCourse,
   statusCourses,
-  watchCOurse,
 } from "store/actions/courses";
 
 import Sidebar from "parts/Sidebar";

@@ -1,5 +1,4 @@
 import { toast } from "react-toastify";
-
 import users from "constants/api/users";
 
 import axios, { setAuthorizationHeader } from "./index";
@@ -7,8 +6,10 @@ import axios, { setAuthorizationHeader } from "./index";
 export default function errorHandler(error) {
   if (error) {
     let message;
+
     if (error.response) {
       const originalRequest = error.config;
+
       if (error.response.status === 500)
         message = "Something went terribly wrong";
       else if (error.response.status === 403 && !originalRequest._retry) {
@@ -39,7 +40,7 @@ export default function errorHandler(error) {
               return axios(originalRequest);
             } else {
               window.location.href = "/login";
-              localStorage.removeItem("BWFICRO:token");
+              localStorage.removeItem("BWFMICRO:token");
             }
           });
       } else message = error.response.data.message;
