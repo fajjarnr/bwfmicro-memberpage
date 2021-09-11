@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+
 import { createBrowserHistory } from "history";
 import { Route, Router, Switch } from "react-router-dom";
 
@@ -11,9 +15,10 @@ import Unauthenticated from "pages/401";
 
 import Login from "./pages/Login";
 import Register from "pages/Register";
+
 import MyClass from "pages/MyClass";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import Joined from "pages/Joined";
+import DetailsClass from "pages/DetailsClass";
 
 import { populateProfile } from "store/actions/users";
 import { setAuthorizationHeader } from "configs/axios";
@@ -44,7 +49,16 @@ function App() {
           <GuestRoutes path="/login" component={Login} />
           <GuestRoutes path="/register" component={Register} />
           <GuestRoutes path="/private" component={Unauthenticated} />
+
           <MemberRoute exact path="/" component={MyClass} />
+          <MemberRoute exact path="/join/:class" component={Joined} />
+          <MemberRoute
+            exact
+            path="/courses/:class/:chapter/:uid"
+            component={DetailsClass}
+          />
+          <MemberRoute exact path="/courses/:class/" component={DetailsClass} />
+
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
