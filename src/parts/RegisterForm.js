@@ -9,7 +9,7 @@ import fieldErrors from "helpers/fieldErrors";
 import Select from "components/Form/Select";
 import Input from "components/Form/Input";
 
-function LoginForm({ history }) {
+function RegisterForm({ history }) {
   const [{ name, email, password, profession, otherProfession }, setState] =
     useForm({
       name: "",
@@ -139,4 +139,4 @@ function LoginForm({ history }) {
   );
 }
 
-export default withRouter(LoginForm);
+export default withRouter(RegisterForm);
