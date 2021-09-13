@@ -13,7 +13,7 @@ import Loading from "parts/Loading";
 import Congratulation from "parts/Congratulation";
 import EmptyState from "parts/EmptyState";
 
-import { statusOrders, fetchOrders, messageOrder } from "store/actions/orders";
+import { fetchOrders, messageOrder, statusOrders } from "store/actions/orders";
 
 function Transactions() {
   const dispatch = useDispatch();
