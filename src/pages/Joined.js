@@ -29,7 +29,7 @@ export default function Joined({ history, match }) {
   function joining() {
     courses
       .join(match.params.class)
-      .then((res) => {
+      .then(() => {
         history.push(`/courses/${match.params.class}`);
       })
       .catch((err) => {

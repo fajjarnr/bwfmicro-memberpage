@@ -14,11 +14,9 @@ export default function errorHandler(error) {
         message = "Something went terribly wrong";
       else if (error.response.status === 403 && !originalRequest._retry) {
         originalRequest._retry = true;
-
         const session = localStorage["BWFMICRO:token"]
           ? JSON.parse(localStorage["BWFMICRO:token"])
           : null;
-
         return users
           .refresh({
             refresh_token: session.refresh_token,
@@ -34,9 +32,7 @@ export default function errorHandler(error) {
                   token: res.data.token,
                 })
               );
-
               originalRequest.headers.authorization = res.data.token;
-
               return axios(originalRequest);
             } else {
               window.location.href = "/login";

@@ -19,7 +19,7 @@ function Sidebar({ match, history }) {
 
   function logout() {
     users.logout().then(() => {
-      localStorage.removeItem("BWAMICRO:token");
+      localStorage.removeItem("BWFMICRO:token");
       history.push("/login");
     });
   }
