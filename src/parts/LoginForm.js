@@ -61,7 +61,7 @@ function LoginForm({ history }) {
   }
 
   return (
-    <div className="flex justify-center items-center pb-24 mx-auto">
+    <div className="flex justify-center items-center pb-24">
       <div className="w-full sm:w-3/12">
         <h1 className="text-4xl text-gray-900 mb-6">
           <span className="font-bold">Continue</span> Study, <br />
@@ -75,9 +75,9 @@ function LoginForm({ history }) {
             <input
               name="email"
               type="email"
+              onChange={setState}
               className="bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500"
               value={email}
-              onChange={setState}
               placeholder="Your email addres"
             />
           </div>
@@ -89,9 +89,9 @@ function LoginForm({ history }) {
             <input
               name="password"
               type="password"
+              onChange={setState}
               className="bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500"
               value={password}
-              onChange={setState}
               placeholder="Your password addres"
             />
           </div>
