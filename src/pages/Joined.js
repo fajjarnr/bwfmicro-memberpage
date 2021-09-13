@@ -14,7 +14,7 @@ export default function Joined({ history, match }) {
     data: {},
   }));
 
-  const joining = React.useCallback(async () => {
+  const joining = useCallback(async () => {
     try {
       const details = await courses.details(match.params.class);
       const joined = await courses.join(match.params.class);
