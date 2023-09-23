@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+    image: fajjarnr/bwf-micro-frontend:memberpage
+    container_name: bwf-micro-memberpage
+    restart: always
+    tty: true
+    ports:
+      - 3030:3030
